@@ -42,12 +42,16 @@ const keyHandler = e => {
     data.keys_hit += key;
     if(key == data.word[data.word_index]) {
         data.in_a_row[key] += 1;
-        (new Audio("click.wav")).play();
+        if (Session.get("sound") === "on") {
+            (new Audio("click.wav")).play();
+        }
     }
     else {
         data.in_a_row[data.word[data.word_index]] = 0;
         data.in_a_row[key] = 0;
-        (new Audio("clack.wav")).play();
+        if (Session.get("sound") === "on") {
+            (new Audio("clack.wav")).play();
+        }
         data.word_errors[data.word_index] = true;
     }
     data.word_index += 1;
@@ -67,7 +71,9 @@ const keyHandler = e => {
 
 const level_up = () => {
     if (data.level + 1 <= data.chars.length - 1) {
-        (new Audio('ding.wav')).play();
+        if (Session.get("sound") === "on") {
+            (new Audio('ding.wav')).play();
+        }
     }
     l = Math.min(data.level + 1, data.chars.length);
     set_level(l);
@@ -211,13 +217,13 @@ const choose = a => {
 };
 
 
-
 Template.start_over_button.events({
     'click #start-over-button'() {
         set_level(1);
         // console.log("clicked start over")
     }
 });
+
 
 Template.start_from_select.events({
     'submit form'(e) {
@@ -244,3 +250,14 @@ Template.finger_position_image_button.events({
     }
 });
 
+
+Session.setDefault("sound", "on");
+Template.sound_button.events({
+    'click #sound-button'(e) {
+        if (Session.get("sound") === "on") {
+            Session.set("sound", "off");
+        } else {
+            Session.set("sound", "on");
+        }
+    }
+});
