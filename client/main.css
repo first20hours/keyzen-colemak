@@ -1,14 +1,37 @@
+#finger-position-image-wrapper {
+    position: absolute;
+    bottom: 10%;
+    width:100%;
+    text-align: center;
+}
+#finger-position-image {
+    width: 90%;
+    max-width: 1200px;
+}
+
+#controls-wrapper {
+    width:100%;
+    text-align: center;
+}
+
+#start-from-select {
+    display: inline-block;
+    margin: 20px 50px;
+}
+#start-over-button {
+    display: inline-block;
+    margin: 20px 50px;
+}
+#finger_position_image_button {
+    display: inline-block;
+    margin: 20px 50px;
+}
+
 @font-face {
     font-family: 'Ubuntu Mono';
     font-style: normal;
     font-weight: normal;
     src: local('Ubuntu Mono'), local('UbuntuMono-Regular'), url('../public/ubuntu-mono.woff') format('woff');
-}
-
-body {
-    background-image: url('../public/brushed_alu.png');
-    padding: 0;
-    margin: 0;
 }
 
 #title {
@@ -26,9 +49,9 @@ body {
 #word {
     color: #AAA;
     position: absolute;
-    top: 50%;
+    top: 25%;
     margin-top: -94px;
-    height:128px;
+    height: 128px;
     font-family: 'Ubuntu Mono', sans-serif;
     font-size: 128px;
     width:100%;

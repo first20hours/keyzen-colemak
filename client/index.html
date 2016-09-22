@@ -1,29 +1,135 @@
 <head>
-
     <title>keyzen-colemak</title>
-
 </head>
 
-
 <body>
-
     <div id='level-chars'>
     </div>
 
     <div id='next-level'>
     </div>
 
+    <div id='controls-wrapper'>
+        {{> start_over_button}}
+        {{> start_from_select}}
+        {{> finger_position_image_button}}
+    </div>
+
     <div id='word'>
     </div>
 
-    <div id='title'>
-        <h1><a href="https://github.com/first20hours/keyzen-colemak">Keyzen-Colemak</a></h1>
+    <div id="finger-position-image-wrapper">
+        <img id="finger-position-image" src="finger-position-image.png">
     </div>
-
-    {{> start_over_button}}
-
 </body>
+
+<template name="start_from_select">
+    <form id="start-from-select">
+        start at:
+        <select name="startFromSelect">
+            <option value="1">n</option>
+            <option value="2">t</option>
+            <option value="3">e</option>
+            <option value="4">s</option>
+            <option value="5">i</option>
+            <option value="6">r</option>
+            <option value="7">o</option>
+            <option value="8">a</option>
+            <option value="9">h</option>
+            <option value="10">d</option>
+            <option value="11">j</option>
+            <option value="12">g</option>
+            <option value="13">l</option>
+            <option value="14">p</option>
+            <option value="15">u</option>
+            <option value="16">f</option>
+            <option value="17">y</option>
+            <option value="18">w</option>
+            <option value="19">q</option>
+            <option value="20">b</option>
+            <option value="21">k</option>
+            <option value="22">v</option>
+            <option value="23">m</option>
+            <option value="24">c</option>
+            <option value="25">x</option>
+            <option value="26">z</option>
+            <option value="27">1</option>
+            <option value="28">2</option>
+            <option value="29">3</option>
+            <option value="30">4</option>
+            <option value="31">5</option>
+            <option value="32">6</option>
+            <option value="33">7</option>
+            <option value="34">8</option>
+            <option value="35">9</option>
+            <option value="36">0</option>
+            <option value="37">'</option>
+            <option value="38">"</option>
+            <option value="39">,</option>
+            <option value="40">.</option>
+            <option value="41">!</option>
+            <option value="42">?</option>
+            <option value="43">:</option>
+            <option value="44">;</option>
+            <option value="45">/</option>
+            <option value="46">@</option>
+            <option value="47">$</option>
+            <option value="48">%</option>
+            <option value="49">&</option>
+            <option value="50">#</option>
+            <option value="51">*</option>
+            <option value="52">(</option>
+            <option value="53">)</option>
+            <option value="54">_</option>
+            <option value="55">N</option>
+            <option value="56">T</option>
+            <option value="57">E</option>
+            <option value="58">S</option>
+            <option value="59">I</option>
+            <option value="60">R</option>
+            <option value="61">O</option>
+            <option value="62">A</option>
+            <option value="63">H</option>
+            <option value="64">D</option>
+            <option value="65">J</option>
+            <option value="66">G</option>
+            <option value="67">L</option>
+            <option value="68">P</option>
+            <option value="69">U</option>
+            <option value="70">F</option>
+            <option value="71">Y</option>
+            <option value="72">W</option>
+            <option value="73">Q</option>
+            <option value="74">B</option>
+            <option value="75">K</option>
+            <option value="76">V</option>
+            <option value="77">M</option>
+            <option value="78">C</option>
+            <option value="79">X</option>
+            <option value="80">Z</option>
+            <option value="81">~</option>
+            <option value="81">+</option>
+            <option value="83">-</option>
+            <option value="84">=</option>
+            <option value="85">{</option>
+            <option value="86">}</option>
+            <option value="87">|</option>
+            <option value="88">^</option>
+            <option value="89">&lt;</option>
+            <option value="90">&gt;</option>
+            <option value="91">`</option>
+            <option value="92">[</option>
+            <option value="93">]</option>
+            <option value="94">\</option>
+        </select>
+        <input type="submit">
+    </form>
+</template>
 
 <template name="start_over_button">
     <button id="start-over-button">start over</button>
+</template>
+
+<template name="finger_position_image_button">
+    <button id="finger-position-image-button">hide/show finger position image</button>
 </template>

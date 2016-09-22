@@ -26,11 +26,14 @@
         <item url="file://$USER_HOME$/.meteor/packages/allow-deny/1.0.5/web.browser/allow-deny.js" />
         <item url="file://$USER_HOME$/.meteor/packages/allow-deny/1.0.5/web.browser/allow-deny-tests.js" />
         <item url="file://$USER_HOME$/.meteor/packages/autoupdate/1.2.11/web.browser/autoupdate_client.js" />
+        <item url="file://$USER_HOME$/.meteor/packages/reactive-dict/1.1.8/web.browser/migration.js" />
         <item url="file://$USER_HOME$/.meteor/packages/fastclick/1.0.12/web.browser/pre.js" />
+        <item url="file://$USER_HOME$/.meteor/packages/reactive-dict/1.1.8/web.browser/reactive-dict.js" />
         <item url="file://$USER_HOME$/.meteor/packages/fastclick/1.0.12/web.browser/post.js" />
         <item url="file://$USER_HOME$/.meteor/packages/fastclick/1.0.12/web.browser/fastclick.js" />
         <item url="file://$USER_HOME$/.meteor/packages/geojson-utils/1.0.9/web.browser/geojson-utils.js" />
         <item url="file://$USER_HOME$/.meteor/packages/geojson-utils/1.0.9/web.browser/main.js" />
+        <item url="file://$USER_HOME$/.meteor/packages/reactive-dict/1.1.8/web.browser/reactive-dict-tests.js" />
         <item url="file://$USER_HOME$/.meteor/packages/html-tools/1.0.10/web.browser/scanner.js" />
         <item url="file://$USER_HOME$/.meteor/packages/html-tools/1.0.10/web.browser/templatetag.js" />
         <item url="file://$USER_HOME$/.meteor/packages/html-tools/1.0.10/web.browser/tokenize.js" />
@@ -67,6 +70,7 @@
         <item url="file://$USER_HOME$/.meteor/packages/promise/0.8.3/web.browser/client.js" />
         <item url="file://$USER_HOME$/.meteor/packages/promise/0.8.3/web.browser/server.js" />
         <item url="file://$USER_HOME$/.meteor/packages/promise/0.8.3/web.browser/promise-tests.js" />
+        <item url="file://$USER_HOME$/.meteor/packages/session/1.1.6/web.browser/session.js" />
         <item url="file://$USER_HOME$/.meteor/packages/mongo-id/1.0.5/web.browser/id.js" />
         <item url="file://$USER_HOME$/.meteor/packages/diff-sequence/1.0.6/web.browser/diff.js" />
         <item url="file://$USER_HOME$/.meteor/packages/ecmascript-runtime/0.3.13/web.browser/runtime-tests.js" />
@@ -159,11 +163,14 @@
       <root url="file://$USER_HOME$/.meteor/packages/allow-deny/1.0.5/web.browser/allow-deny.js" />
       <root url="file://$USER_HOME$/.meteor/packages/allow-deny/1.0.5/web.browser/allow-deny-tests.js" />
       <root url="file://$USER_HOME$/.meteor/packages/autoupdate/1.2.11/web.browser/autoupdate_client.js" />
+      <root url="file://$USER_HOME$/.meteor/packages/reactive-dict/1.1.8/web.browser/migration.js" />
       <root url="file://$USER_HOME$/.meteor/packages/fastclick/1.0.12/web.browser/pre.js" />
+      <root url="file://$USER_HOME$/.meteor/packages/reactive-dict/1.1.8/web.browser/reactive-dict.js" />
       <root url="file://$USER_HOME$/.meteor/packages/fastclick/1.0.12/web.browser/post.js" />
       <root url="file://$USER_HOME$/.meteor/packages/fastclick/1.0.12/web.browser/fastclick.js" />
       <root url="file://$USER_HOME$/.meteor/packages/geojson-utils/1.0.9/web.browser/geojson-utils.js" />
       <root url="file://$USER_HOME$/.meteor/packages/geojson-utils/1.0.9/web.browser/main.js" />
+      <root url="file://$USER_HOME$/.meteor/packages/reactive-dict/1.1.8/web.browser/reactive-dict-tests.js" />
       <root url="file://$USER_HOME$/.meteor/packages/html-tools/1.0.10/web.browser/scanner.js" />
       <root url="file://$USER_HOME$/.meteor/packages/html-tools/1.0.10/web.browser/templatetag.js" />
       <root url="file://$USER_HOME$/.meteor/packages/html-tools/1.0.10/web.browser/tokenize.js" />
@@ -200,6 +207,7 @@
       <root url="file://$USER_HOME$/.meteor/packages/promise/0.8.3/web.browser/client.js" />
       <root url="file://$USER_HOME$/.meteor/packages/promise/0.8.3/web.browser/server.js" />
       <root url="file://$USER_HOME$/.meteor/packages/promise/0.8.3/web.browser/promise-tests.js" />
+      <root url="file://$USER_HOME$/.meteor/packages/session/1.1.6/web.browser/session.js" />
       <root url="file://$USER_HOME$/.meteor/packages/mongo-id/1.0.5/web.browser/id.js" />
       <root url="file://$USER_HOME$/.meteor/packages/diff-sequence/1.0.6/web.browser/diff.js" />
       <root url="file://$USER_HOME$/.meteor/packages/ecmascript-runtime/0.3.13/web.browser/runtime-tests.js" />

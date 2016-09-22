@@ -51,10 +51,12 @@ observe-sequence@1.0.12
 ordered-dict@1.0.8
 promise@0.8.3
 random@1.0.10
+reactive-dict@1.1.8
 reactive-var@1.0.10
 reload@1.1.10
 retry@1.0.8
 routepolicy@1.0.11
+session@1.1.6
 spacebars@1.0.12
 spacebars-compiler@1.0.12
 standard-minifier-css@1.1.8
