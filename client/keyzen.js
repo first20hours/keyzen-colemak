@@ -1,8 +1,10 @@
+import './index.html';
+import { Session } from 'meteor/session'
+
 var data = {};
-data.chars = " ntesiroahdjglpufywqbkvmcxz1234567890'\",.!?:;/@$%&#*()_ABCDEFGHIJKLMNOPQRSTUVWXYZ~+-={}|^<>`[]\\";
+data.chars = " ntesiroahdjglpufywqbkvmcxz1234567890'\",.!?:;/@$%&#*()_NTESIROAHDJGLPUFYWQBKVMCXZ~+-={}|^<>`[]\\";
 data.consecutive = 10;
 data.word_length = 7;
-
 
 $(document).ready(function() {
     if (localStorage.data != undefined) {
@@ -16,7 +18,7 @@ $(document).ready(function() {
 });
 
 
-function set_level(l) {
+const set_level = l => {
     data.in_a_row = {};
     for(var i = 0; i < data.chars.length; i++) {
         data.in_a_row[data.chars[i]] = data.consecutive;
@@ -29,10 +31,10 @@ function set_level(l) {
     data.keys_hit = "";
     save();
     render();
-}
+};
 
 
-function keyHandler(e) {
+const keyHandler = e => {
     var key = String.fromCharCode(e.which);
     if (data.chars.indexOf(key) > -1){
         e.preventDefault();
@@ -40,12 +42,16 @@ function keyHandler(e) {
     data.keys_hit += key;
     if(key == data.word[data.word_index]) {
         data.in_a_row[key] += 1;
-        (new Audio("click.wav")).play();
+        if (Session.get("sound") === "on") {
+            (new Audio("click.wav")).play();
+        }
     }
     else {
         data.in_a_row[data.word[data.word_index]] = 0;
         data.in_a_row[key] = 0;
-        (new Audio("clack.wav")).play();
+        if (Session.get("sound") === "on") {
+            (new Audio("clack.wav")).play();
+        }
         data.word_errors[data.word_index] = true;
     }
     data.word_index += 1;
@@ -60,36 +66,38 @@ function keyHandler(e) {
     }
     render();
     save();
-}
+};
 
 
-function level_up() {
+const level_up = () => {
     if (data.level + 1 <= data.chars.length - 1) {
-        (new Audio('ding.wav')).play();
+        if (Session.get("sound") === "on") {
+            (new Audio('ding.wav')).play();
+        }
     }
     l = Math.min(data.level + 1, data.chars.length);
     set_level(l);
-}
+};
 
 
-function save() {
+const save = () => {
     localStorage.data = JSON.stringify(data);
-}
+};
 
 
-function load() {
+const load = () => {
     data = JSON.parse(localStorage.data);
-}
+};
 
 
-function render() {
+const render = () => {
     render_level();
     render_word();
     render_level_bar();
-}
+};
 
 
-function render_level() {
+const render_level = () => {
     var chars = "<span id='level-chars-wrap'>";
     var level_chars = get_level_chars();
     var training_chars = get_training_chars();
@@ -113,10 +121,10 @@ function render_level() {
     }
     chars += "</span>";
     $("#level-chars").html(chars);
-}
+};
 
 
-function render_level_bar() {
+const render_level_bar = () => {
     training_chars = get_training_chars();
     if(training_chars.length == 0) {
         m = data.consecutive;
@@ -129,10 +137,10 @@ function render_level_bar() {
     }
     m = Math.floor($('#level-chars-wrap').innerWidth() * Math.min(1.0, m / data.consecutive));
     $('#next-level').css({'width': '' + m + 'px'});
-    
-}   
 
-function render_word() {
+};
+
+const render_word = () => {
     var word = "";
     for (var i = 0; i < data.word.length; i++) {
         sclass = "normalChar";
@@ -171,10 +179,10 @@ function render_word() {
     }
     keys_hit += "</span>";
     $("#word").html(word + "<br>" + keys_hit);
-}
+};
 
 
-function generate_word() {
+const generate_word = () => {
     word = '';
     for(var i = 0; i < data.word_length; i++) {
         c = choose(get_training_chars());
@@ -186,14 +194,14 @@ function generate_word() {
         }
     }
     return word;
-}
+};
 
 
-function get_level_chars() {
+const get_level_chars = () => {
     return data.chars.slice(0, data.level + 1).split('');
-}
+};
 
-function get_training_chars() {
+const get_training_chars = () => {
     var training_chars = [];
     var level_chars = get_level_chars();
     for(var x in level_chars) {
@@ -202,49 +210,54 @@ function get_training_chars() {
         }
     }
     return training_chars;
-}
+};
 
-function choose(a) {
+const choose = a => {
     return a[Math.floor(Math.random() * a.length)];
-}
+};
 
 
+Template.start_over_button.events({
+    'click #start-over-button'() {
+        set_level(1);
+        // console.log("clicked start over")
+    }
+});
 
 
+Template.start_from_select.events({
+    'submit form'(e) {
+        e.preventDefault();
+
+        const selectedValue = parseInt(e.target.startFromSelect.value);
+        // console.log("selected value:", selectedValue);
+
+        set_level(selectedValue);
+    }
+});
 
 
+Session.setDefault("finger-position-image-visibility", "shown");
+Template.finger_position_image_button.events({
+    'click #finger-position-image-button'(e) {
+        if (Session.get("finger-position-image-visibility") === "shown") {
+            $("#finger-position-image").hide();
+            Session.set("finger-position-image-visibility", "hidden");
+        } else {
+            $("#finger-position-image").show();
+            Session.set("finger-position-image-visibility", "shown");
+        }
+    }
+});
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+Session.setDefault("sound", "on");
+Template.sound_button.events({
+    'click #sound-button'(e) {
+        if (Session.get("sound") === "on") {
+            Session.set("sound", "off");
+        } else {
+            Session.set("sound", "on");
+        }
+    }
+});
