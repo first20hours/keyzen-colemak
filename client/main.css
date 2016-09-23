@@ -1,0 +1,115 @@
+#finger-position-image-wrapper {
+    position: absolute;
+    bottom: 10%;
+    width:100%;
+    text-align: center;
+}
+#finger-position-image {
+    width: 90%;
+    max-width: 1200px;
+}
+
+#controls-wrapper {
+    width:100%;
+    text-align: center;
+}
+
+#start-from-select {
+    display: inline-block;
+    margin: 20px 50px;
+}
+#start-over-button {
+    display: inline-block;
+    margin: 20px 50px;
+}
+#finger_position_image_button {
+    display: inline-block;
+    margin: 20px 50px;
+}
+
+@font-face {
+    font-family: 'Ubuntu Mono';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Ubuntu Mono'), local('UbuntuMono-Regular'), url('../public/ubuntu-mono.woff') format('woff');
+}
+
+#title {
+    color: #AAA;
+    position: absolute;
+    bottom: 10px;
+    text-align: center;
+    margin-left: auto;
+    margin-right:auto;
+    font-family: 'Ubuntu Mono', sans-serif;
+    font-size: 10px;
+    width:100%;
+}
+
+#word {
+    color: #AAA;
+    position: absolute;
+    top: 25%;
+    margin-top: -94px;
+    height: 128px;
+    font-family: 'Ubuntu Mono', sans-serif;
+    font-size: 128px;
+    width:100%;
+    padding: 0px;
+    text-align: center;
+    margin-left: auto;
+    margin-right:auto;
+    word-wrap: break-word;
+    text-shadow: 0px 2px 3px #000;
+}
+
+.keys-hit {
+    color: #CCC;
+    font-family: 'Ubuntu Mono', sans-serif;
+    font-size: 128px;
+    text-shadow: none;
+}
+
+#next-level {
+    height: 2px;
+    background-color: #f78d1d;
+    margin-left: auto;
+    margin-right:auto;
+}
+
+#level-chars {
+    font-family: 'Ubuntu Mono', sans-serif;
+    font-size: 16px;
+    width:95%;
+    text-align: center;
+    padding: 16px;
+    margin-left: auto;
+    margin-right:auto;
+    word-wrap: break-word;
+    font-weight: bold;
+    cursor: hand;
+    color: #AAAAAA;
+}
+
+.currentChar {
+    border-bottom: 4px solid #f78d1d;
+}
+
+.errorChar {
+    color: #FF0000;
+}
+
+.goodChar {
+    color: #AAAAAA;
+    text-shadow: 0px 1px 1px #FFF, 0px 2px 2px #FFF;
+}
+
+a {
+    color: #AAAAAA;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #f78d1d;
+    text-decoration: underline;
+}
