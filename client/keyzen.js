@@ -2,7 +2,7 @@ import './index.html';
 import { Session } from 'meteor/session'
 
 var data = {};
-data.chars = " ntesiroahdjglpufywqbkvmcxz1234567890'\",.!?:;/@$%&#*()_ABCDEFGHIJKLMNOPQRSTUVWXYZ~+-={}|^<>`[]\\";
+data.chars = " ntesiroahdjglpufywqbkvmcxz1234567890'\",.!?:;/@$%&#*()_NTESIROAHDJGLPUFYWQBKVMCXZ~+-={}|^<>`[]\\";
 data.consecutive = 10;
 data.word_length = 7;
 

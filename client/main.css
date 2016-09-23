@@ -37,12 +37,12 @@
 #title {
     color: #AAA;
     position: absolute;
-    top: 80%;
+    bottom: 10px;
     text-align: center;
     margin-left: auto;
     margin-right:auto;
     font-family: 'Ubuntu Mono', sans-serif;
-    font-size: 18px;
+    font-size: 10px;
     width:100%;
 }
 
