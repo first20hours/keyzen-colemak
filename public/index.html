@@ -99,6 +99,238 @@
             	text-shadow: 0px 1px 1px #FFF, 0px 2px 2px #FFF;
             }
 
+            #kb-toggle {
+                position: fixed;
+                right: 16px;
+                bottom: 16px;
+                height: 28px;
+                line-height: 28px;
+                text-align: center;
+                font-family: 'Ubuntu Mono', monospace;
+                font-size: 13px;
+                color: #a8a8a8;
+                cursor: pointer;
+                user-select: none;
+                z-index: 10;
+            }
+
+            #kb-toggle:hover {
+                color: #f78d1d;
+                text-decoration: underline;
+            }
+
+            #keyboard {
+                display: none;
+                position: fixed;
+                right: 16px;
+                bottom: 56px;
+                font-family: 'Ubuntu Mono', monospace;
+                z-index: 10;
+            }
+
+            #keyboard.open {
+                display: block;
+            }
+
+            .kb-row {
+                display: flex;
+                gap: 3px;
+                margin-bottom: 3px;
+            }
+
+            .kb-key {
+                position: relative;
+                width: 25px;
+                height: 25px;
+                line-height: 25px;
+                text-align: center;
+                font-size: 14px;
+                color: #7a7a7a;
+                border: 1px solid rgba(0,0,0,0.16);
+                border-radius: 4px;
+                transition: background-color 120ms, color 120ms, border-color 120ms;
+            }
+
+            .kb-key.home {
+                color: #3c3c3c;
+                border-color: rgba(0,0,0,0.3);
+            }
+
+            .kb-key.bump::after {
+                content: "";
+                position: absolute;
+                bottom: 3px;
+                left: 50%;
+                width: 6px;
+                height: 1.5px;
+                margin-left: -3px;
+                border-radius: 1px;
+                background: currentColor;
+                opacity: 0.6;
+            }
+
+            .kb-key.next {
+                background: #f78d1d;
+                border-color: #f78d1d;
+                color: #FFF;
+            }
+
+            #stats-toggle {
+                position: fixed;
+                left: 16px;
+                bottom: 16px;
+                height: 28px;
+                line-height: 28px;
+                font-family: 'Ubuntu Mono', monospace;
+                font-size: 13px;
+                color: #a8a8a8;
+                cursor: pointer;
+                user-select: none;
+                z-index: 10;
+            }
+
+            #stats-toggle:hover {
+                color: #f78d1d;
+                text-decoration: underline;
+            }
+
+            #stats {
+                display: none;
+                position: fixed;
+                left: 16px;
+                bottom: 56px;
+                width: 240px;
+                font-family: 'Ubuntu Mono', monospace;
+                font-size: 13px;
+                color: #7a7a7a;
+                z-index: 10;
+            }
+
+            #stats.open {
+                display: block;
+            }
+
+            .stats-head {
+                display: flex;
+                justify-content: space-between;
+                margin-bottom: 8px;
+                color: #3c3c3c;
+            }
+
+            #stats-reset {
+                color: #7a7a7a;
+                cursor: pointer;
+            }
+
+            #stats-reset:hover {
+                color: #f78d1d;
+            }
+
+            .stats-row {
+                display: flex;
+                align-items: center;
+                gap: 8px;
+                margin-bottom: 3px;
+            }
+
+            .stats-row .kb-key {
+                flex: none;
+                color: #3c3c3c;
+            }
+
+            .stats-rank {
+                width: 14px;
+                text-align: right;
+            }
+
+            .stats-bar {
+                flex: 1;
+                height: 2px;
+                background: rgba(0,0,0,0.08);
+            }
+
+            .stats-bar span {
+                display: block;
+                height: 2px;
+                background: #f78d1d;
+            }
+
+            .stats-num {
+                width: 32px;
+                text-align: right;
+            }
+
+            .stats-instead {
+                width: 30px;
+            }
+
+            #focus-weak {
+                margin-top: 8px;
+                color: #a8a8a8;
+                cursor: pointer;
+                user-select: none;
+            }
+
+            #focus-weak:hover {
+                color: #f78d1d;
+                text-decoration: underline;
+            }
+
+            #focus-weak.on #focus-weak-state {
+                color: #f78d1d;
+            }
+
+            .stats-empty {
+                color: #a8a8a8;
+            }
+
+            #streak {
+                position: fixed;
+                left: 50%;
+                bottom: 16px;
+                transform: translateX(-50%);
+                height: 28px;
+                line-height: 28px;
+                font-family: 'Ubuntu Mono', monospace;
+                font-size: 13px;
+                color: #a8a8a8;
+                white-space: nowrap;
+                user-select: none;
+            }
+
+            #streak-count {
+                font-size: 18px;
+                color: #7a7a7a;
+                vertical-align: -1px;
+            }
+
+            #streak .streak-best {
+                margin-left: 12px;
+            }
+
+            #streak.broken #streak-count {
+                animation: streak-broken 600ms ease-out;
+            }
+
+            @keyframes streak-broken {
+                from {
+                    color: #f78d1d;
+                }
+                to {
+                    color: #7a7a7a;
+                }
+            }
+
+            @media (prefers-reduced-motion: reduce) {
+                .kb-key {
+                    transition: none;
+                }
+
+                #streak.broken #streak-count {
+                    animation: none;
+                }
+            }
+
 			a {
 				color: #AAAAAA;
 				text-decoration: none;
@@ -131,6 +363,16 @@
             </div>
 
         </div>        
+
+        <div id='keyboard'></div>
+        <div id='stats'>
+            <div class='stats-head'><span>most missed</span><span id='stats-reset' title='Clear all stats'>reset</span></div>
+            <div id='stats-list'></div>
+            <div id='focus-weak' title='Show the keys you miss most a bit more often in practice words'>focus weak keys: <span id='focus-weak-state'>off</span></div>
+        </div>
+        <div id='streak' title='Keys typed correctly since your last mistake'><span id='streak-count'>0</span> in a row<span class='streak-best'>best <span id='streak-best'>0</span></span></div>
+        <div id='stats-toggle' title='Show most missed keys'>stats</div>
+        <div id='kb-toggle' title='Show Colemak keyboard (Esc)'>kb</div>
 
     </body>
     
